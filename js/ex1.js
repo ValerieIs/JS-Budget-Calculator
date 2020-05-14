@@ -1,5 +1,34 @@
+"use strict";
+
 let money,
     time;
+
+// Right Fields
+
+const startCount = document.querySelector('#start'),
+    budget = document.querySelector('.budget-value'),
+    dayBudget = document.querySelector('.daybudget-value'),
+    expenses = document.querySelector('.expenses-value'),
+    level = document.querySelector('.level-value'),
+    optionalExpenses = document.querySelector('.optionalexpenses-value'),
+    income = document.querySelector('.income-value'),
+    monthSavings = document.querySelector('.monthsavings-value'),
+    yearSavings = document.querySelector('.yearsavings-value'),
+    yearDate = document.querySelector('.year-value'),
+    monthDate = document.querySelector('.month-value'),
+    dayDate = document.querySelector('.day-value');
+
+// Left Fields
+
+const expensesItem = document.getElementsByClassName('expenses-item'),
+    expensesBtn = document.getElementsByTagName('button')[0],
+    optionalExpensesBtn = document.getElementsByTagName('button')[1],
+    countBtn = document.getElementsByTagName('button')[2],
+    optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
+    chooseIncome = document.querySelector('.choose-icome'),
+    checkSavings = document.querySelector('.checksavings'),
+    chooseSum = document.querySelector('.choose-sum'),
+    choosePercent = document.querySelector('.choose-percent');
 
 function start() {
     money = +prompt("Ваш бюджет на месяц?", '');
@@ -88,27 +117,3 @@ for (element in appData) {
     console.log("Наша программа включает в себя данные: " + element);
 }
 
-/* while (i < 2) {
-    let a = prompt('Введите обязательную статью расходов в этом месяце'),
-        b = prompt("Во сколько обойдется?");
-
-    if ( (typeof(a)) === "string" && (typeof(a)) != null && (typeof(b)) != null
-        && a != '' && b != '' && a.length < 50) {
-        console.log("done");
-        appData.expenses[a] = b;
-        i++;    
-    }
-} */
-
-/*do {
-    let a = prompt('Введите обязательную статью расходов в этом месяце'),
-        b = prompt("Во сколько обойдется?");
-
-    if ( (typeof(a)) === "string" && (typeof(a)) != null && (typeof(b)) != null
-        && a != '' && b != '' && a.length < 50) {
-        console.log("done");
-        appData.expenses[a] = b;
-        i++;  
-    }
-}
-while (i < 2);*/
