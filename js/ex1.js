@@ -1,11 +1,8 @@
 "use strict";
 
-let money,
-    time;
-
 // Right Fields
 
-const startCount = document.querySelector('#start'),
+const startBtn = document.querySelector('.start'),
     budget = document.querySelector('.budget-value'),
     dayBudget = document.querySelector('.daybudget-value'),
     expenses = document.querySelector('.expenses-value'),
@@ -21,7 +18,7 @@ const startCount = document.querySelector('#start'),
 // Left Fields
 
 const expensesItem = document.getElementsByClassName('expenses-item'),
-    expensesBtn = document.getElementsByTagName('button')[0],
+    expensesBtn = document.querySelector('#knopka-ebuchaya'),
     optionalExpensesBtn = document.getElementsByTagName('button')[1],
     countBtn = document.getElementsByTagName('button')[2],
     optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
@@ -30,16 +27,43 @@ const expensesItem = document.getElementsByClassName('expenses-item'),
     chooseSum = document.querySelector('.choose-sum'),
     choosePercent = document.querySelector('.choose-percent');
 
-function start() {
-    money = +prompt("Ваш бюджет на месяц?", '');
+let money, time;
+
+startBtn.addEventListener('click', function() {
     time = prompt('Введите дату в формате YYYY-MM-DD', '');
+    money = +prompt("Ваш бюджет на месяц?", '');
 
     while(isNaN(money) || money == "" || money == null) {
         money = +prompt("Ваш бюджет на месяц?", '');
     }
-}
 
-start();
+    appData.budget = money;
+    appData.timeData = time;
+    budget.textContent = money.toFixed(0);
+    yearDate.value = new Date(Date.parse(time)).getFullYear();
+    monthDate.value = new Date(Date.parse(time)).getMonth() + 1;
+    dayDate.value = new Date(Date.parse(time)).getDate();
+});
+
+expensesBtn.addEventListener('click', function () {
+    let sum = 0;
+
+    for ( let i = 0; i < expensesItem.length; i++) {
+        let a = expensesItem[i].value,
+            b = expensesItem[++i].value;
+    
+        if ((typeof(a)) === "string" && (typeof(a)) != null && 
+            (typeof(b)) != null && a != '' && b != '' && a.length < 50) {
+            console.log("done");
+            appData.expenses[a] = b;
+            sum += +b;
+        } else {
+            i = i - 1;   
+        }    
+        expenses.textContent = sum;
+    }        
+});
+
 
 let appData = {
     budget: money,
