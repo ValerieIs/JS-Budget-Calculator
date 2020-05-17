@@ -1,4 +1,4 @@
-# [Budget Calculator](https://valerieis.github.io/js-exersizes/)
+# [Budget Calculator](https://valerieis.github.io/JS-Budget-Calculator/)
 ### js exercize
 #### !only desktop view!
 
