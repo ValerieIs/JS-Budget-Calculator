@@ -1,11 +1,6 @@
-# js-exersizes
-(udemy course 1: old version)
+# [Budget Calculator](https://valerieis.github.io/js-exersizes/)
+### js exercize
+#### !only desktop view!
 
-- Data types
-- Objects
-- Operations
-- Conditions 
-- Do While For 
-- Functions
-- Callback-functions
-- Massives
+(the whole code in docs folder)
+
